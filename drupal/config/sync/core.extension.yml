@@ -6,6 +6,7 @@ module:
   dynamic_page_cache: 0
   field: 0
   filter: 0
+  fricks: 0
   node: 0
   page_cache: 0
   path_alias: 0
