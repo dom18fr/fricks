@@ -1,0 +1,7 @@
+fricks.content:
+  path: '/app'
+  defaults:
+    _controller: '\Drupal\fricks\Controller\AppController::content'
+    _title: 'Hello World'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,4 @@
+name: F.Ricks Atelier
+description: Single module for F.Ricks Atelier project
+type: module
+core_version_requirement: ^9
