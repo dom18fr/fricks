@@ -10,6 +10,9 @@ module:
   node: 0
   page_cache: 0
   path_alias: 0
+  rest: 0
+  restui: 0
+  serialization: 0
   system: 0
   text: 0
   update: 0
@@ -17,4 +20,5 @@ module:
   minimal: 1000
 theme:
   stark: 0
+  claro: 0
 profile: minimal
