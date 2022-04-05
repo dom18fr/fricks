@@ -8,6 +8,7 @@ services:
                 workdir: ${FRICKS_BASE_DIR}
         environment:
             FRICKS_BASE_DIR: ${FRICKS_BASE_DIR}
+            FRICKS_BASE_URL: ${FRICKS_BASE_URL}
             FRICKS_DATABASE_HOST: ${FRICKS_DATABASE_HOST}
             FRICKS_DATABASE_PORT: ${FRICKS_DATABASE_PORT}
             FRICKS_DATABASE_NAME: ${FRICKS_DATABASE_NAME}
@@ -18,6 +19,7 @@ services:
         volumes:
             - ./docker/drupal/php-conf.d/drupal.ini:/usr/local/etc/php/conf.d/drupal.ini:ro
             - ./drupal:${FRICKS_BASE_DIR}
+            - ./front:${FRICKS_BASE_DIR}/../front
 
     database:
         image: mysql:8.0

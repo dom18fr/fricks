@@ -1,0 +1,17 @@
+{
+    "presets": [
+        "@babel/env",
+        "@babel/react",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-runtime",
+        "add-react-displayname",
+        [
+            "wildcard", 
+            {
+                "exts": ["js", "tsx", "svg"]
+            }
+        ]
+    ]
+}
