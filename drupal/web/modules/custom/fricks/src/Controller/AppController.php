@@ -7,7 +7,7 @@ class AppController {
     function content()
     {
         return [
-            '#markup' => 'OK !',
+            '#markup' => 'ee',
         ];
     }
 }

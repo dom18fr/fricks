@@ -1,0 +1,4 @@
+app:
+  version: 1.x
+  js:
+    ../../../modules/custom/fricks/front/dist/main.js: { }

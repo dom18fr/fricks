@@ -1,0 +1,9 @@
+name: Fricks theme
+type: theme
+description: 'Custom theme for F.Ricks Atelier project'
+core_version_requirement: ^9
+libraries:
+  - fricks_theme/app
+base theme: false
+regions:
+  content: 'Content'
