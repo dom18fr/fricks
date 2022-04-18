@@ -1,0 +1,29 @@
+uuid: 21f8f9ff-b5c7-4d51-ad46-a9136b2bbd71
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_image
+    - media.type.imagge
+    - node.type.home
+id: node.home.field_main_image
+field_name: field_main_image
+entity_type: node
+bundle: home
+label: 'Image d''accueil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      imagge: imagge
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

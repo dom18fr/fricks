@@ -1,8 +1,12 @@
 uuid: e863b71c-8346-446d-9595-196ab6308b1a
-langcode: en
+langcode: fr
 status: true
 dependencies:
+  config:
+    - rest.resource.fricks_entity_view_mode_resource
   module:
+    - media
+    - rest
     - system
 _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
@@ -12,3 +16,5 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
+  - 'restful get fricks_entity_view_mode_resource'
+  - 'view media'

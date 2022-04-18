@@ -1,0 +1,22 @@
+uuid: 7b14cbd3-ac02-4541-8967-7aecf07d5236
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - fricks_theme
+_core:
+  default_config_hash: NjcxOBrPOiK5-38t56DwFBDVY4yer7YSlbRWXFuHe7A
+id: fricks_theme_breadcrumbs
+theme: fricks_theme
+region: content
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

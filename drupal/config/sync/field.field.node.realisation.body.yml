@@ -1,0 +1,23 @@
+uuid: 4ee54b1d-8b40-41af-8eb4-533d1f7f00af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.realisation
+  module:
+    - text
+id: node.realisation.body
+field_name: body
+entity_type: node
+bundle: realisation
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,18 @@
+uuid: 156d2e3f-8ffa-4018-a898-0c6b5929c361
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.realisation
+id: node.realisation.title
+field_name: title
+entity_type: node
+bundle: realisation
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

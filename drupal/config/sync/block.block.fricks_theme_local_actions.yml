@@ -1,0 +1,20 @@
+uuid: 94472402-97fa-4af0-a8db-485fbedd48c6
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fricks_theme
+_core:
+  default_config_hash: CdXfDmRgAvms7EQovxxWPdYi0GitxeRbVtScYK16ZH0
+id: fricks_theme_local_actions
+theme: fricks_theme
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

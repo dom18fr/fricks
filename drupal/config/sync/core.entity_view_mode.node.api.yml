@@ -1,0 +1,10 @@
+uuid: e5d23172-07bb-4045-870c-0c08f7f6f633
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: node.api
+label: api
+targetEntityType: node
+cache: true

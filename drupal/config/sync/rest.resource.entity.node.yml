@@ -1,0 +1,17 @@
+uuid: 44baa775-608c-4539-bf2d-d281be488345
+langcode: fr
+status: false
+dependencies:
+  module:
+    - node
+    - serialization
+    - user
+id: entity.node
+plugin_id: 'entity:node'
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

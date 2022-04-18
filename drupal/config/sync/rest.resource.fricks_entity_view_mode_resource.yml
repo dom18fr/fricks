@@ -1,0 +1,17 @@
+uuid: 91cadf55-bbc9-4b95-87c6-dc81228748cc
+langcode: fr
+status: true
+dependencies:
+  module:
+    - fricks
+    - serialization
+    - user
+id: fricks_entity_view_mode_resource
+plugin_id: fricks_entity_view_mode_resource
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2db3310924b351de4c670aab04ba569c",
+    "content-hash": "0d3d6954b4af171c745b39cc2acfa543",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1189,6 +1189,59 @@
             "time": "2020-10-27T21:46:55+00:00"
         },
         {
+            "name": "drupal/adminimal_theme",
+            "version": "1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/adminimal_theme.git",
+                "reference": "8.x-1.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/adminimal_theme-8.x-1.6.zip",
+                "reference": "8.x-1.6",
+                "shasum": "89132d0853388afe8dfd11fb83c69a48d8c13413"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.6",
+                    "datestamp": "1602006937",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "ANDiTKO",
+                    "homepage": "https://www.drupal.org/user/1428124"
+                },
+                {
+                    "name": "andrey.troeglazov",
+                    "homepage": "https://www.drupal.org/user/3145389"
+                },
+                {
+                    "name": "realityloop",
+                    "homepage": "https://www.drupal.org/user/139189"
+                }
+            ],
+            "description": "Drupal administration theme with modern minimalist design.",
+            "homepage": "https://www.drupal.org/project/adminimal_theme",
+            "support": {
+                "source": "https://git.drupalcode.org/project/adminimal_theme",
+                "issues": "https://www.drupal.org/project/issues/adminimal_theme"
+            }
+        },
+        {
             "name": "drupal/core",
             "version": "9.3.9",
             "source": {
@@ -1609,6 +1662,160 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies; require this project INSTEAD OF drupal/core."
+        },
+        {
+            "name": "drupal/extra_field",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/extra_field.git",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extra_field-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "c1acf24feff92efb5537003fabc66c4738cc1481"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1619442008",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sutharsan",
+                    "homepage": "https://www.drupal.org/user/73854"
+                }
+            ],
+            "description": "Provides a plugin type for extra fields that look like real fields, but do not store data.",
+            "homepage": "https://www.drupal.org/project/extra_field",
+            "support": {
+                "source": "https://git.drupalcode.org/project/extra_field"
+            }
+        },
+        {
+            "name": "drupal/extra_field_plus",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/extra_field_plus.git",
+                "reference": "8.x-2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/extra_field_plus-8.x-2.1.zip",
+                "reference": "8.x-2.1",
+                "shasum": "f655bba0f6878804e92749a7b7c429f9a70de3d5"
+            },
+            "require": {
+                "drupal/core": "^8.9 || ^9",
+                "drupal/extra_field": "^1.0 || ^2.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.1",
+                    "datestamp": "1647877497",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Tsiupiakh",
+                    "homepage": "https://www.drupal.org/user/3302731",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Anybody",
+                    "homepage": "https://www.drupal.org/u/anybody",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides an interface and the extra field base plugins with editable display settings.",
+            "homepage": "https://www.drupal.org/project/extra_field_plus",
+            "keywords": [
+                "Drupal",
+                "Extra field",
+                "Extra field settings provider",
+                "Fields",
+                "Pseudo field"
+            ],
+            "support": {
+                "source": "https://www.drupal.org/project/extra_field_plus",
+                "issues": "https://www.drupal.org/project/issues/extra_field_plus"
+            }
+        },
+        {
+            "name": "drupal/oembed_providers",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/oembed_providers.git",
+                "reference": "2.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/oembed_providers-2.0.2.zip",
+                "reference": "2.0.2",
+                "shasum": "161640caddc289856190fdbc33b53e16f690c10f"
+            },
+            "require": {
+                "drupal/core": "^9.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.2",
+                    "datestamp": "1646068616",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Burge",
+                    "homepage": "https://www.drupal.org/u/chris-burge",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Allows site builders and developers to manage oEmbed providers.",
+            "homepage": "https://drupal.org/project/oembed_providers",
+            "keywords": [
+                "Drupal",
+                "Media",
+                "oEmbed"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/oembed_providers",
+                "issues": "https://www.drupal.org/project/issues/oembed_providers"
+            }
         },
         {
             "name": "drupal/restui",

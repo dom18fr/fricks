@@ -1,0 +1,20 @@
+uuid: 4d4bfe60-5b1f-43b5-9cda-4108cf0a07f2
+langcode: en
+status: true
+dependencies:
+  theme:
+    - fricks_theme
+_core:
+  default_config_hash: fNwDdW063tk_ktzSWzZVeQS9wzvLooVO280BQ9WrsIs
+id: fricks_theme_page_title
+theme: fricks_theme
+region: content
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

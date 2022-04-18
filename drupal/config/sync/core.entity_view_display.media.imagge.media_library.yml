@@ -1,0 +1,31 @@
+uuid: 69acd01e-71bc-4be1-9ee0-4d436df47d9f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.imagge.field_media_image
+    - image.style.medium
+    - media.type.imagge
+  module:
+    - image
+id: media.imagge.media_library
+targetEntityType: media
+bundle: imagge
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_image: true
+  langcode: true
+  name: true
+  uid: true

@@ -2,12 +2,14 @@
 
 namespace Drupal\fricks\Controller;
 
-class AppController {
+use Drupal\Core\Controller\ControllerBase;
 
-    function content()
-    {
-        return [
-            '#markup' => 'ee',
-        ];
-    }
+class AppController extends ControllerBase {
+
+  function content()
+  {
+    return [
+      '#markup' => 'ee',
+    ];
+  }
 }

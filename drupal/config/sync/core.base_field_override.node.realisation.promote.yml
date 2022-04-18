@@ -1,0 +1,22 @@
+uuid: 9d9e9c24-1add-44c8-854a-a44c4d63aef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.realisation
+id: node.realisation.promote
+field_name: promote
+entity_type: node
+bundle: realisation
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

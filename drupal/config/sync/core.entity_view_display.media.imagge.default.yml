@@ -1,0 +1,30 @@
+uuid: 6878485e-f391-40d2-b68b-72b841c23e57
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.media.imagge.field_media_image
+    - image.style.large
+    - media.type.imagge
+  module:
+    - image
+id: media.imagge.default
+targetEntityType: media
+bundle: imagge
+mode: default
+content:
+  field_media_image:
+    type: image
+    label: visually_hidden
+    settings:
+      image_link: ''
+      image_style: large
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

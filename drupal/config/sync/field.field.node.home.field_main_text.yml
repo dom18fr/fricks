@@ -1,0 +1,21 @@
+uuid: 19e758ab-05f3-421d-b758-d8445a0035a7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_text
+    - node.type.home
+  module:
+    - text
+id: node.home.field_main_text
+field_name: field_main_text
+entity_type: node
+bundle: home
+label: 'Texte d''accueil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

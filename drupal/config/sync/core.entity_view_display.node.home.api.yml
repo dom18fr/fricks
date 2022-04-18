@@ -1,0 +1,42 @@
+uuid: 44a969ac-c1bb-4614-a8d0-c49ef9c8fc3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.api
+    - field.field.node.home.field_main_image
+    - field.field.node.home.field_main_text
+    - node.type.home
+  module:
+    - text
+    - user
+id: node.home.api
+targetEntityType: node
+bundle: home
+mode: api
+content:
+  extra_field_node_title_normalized_extra_field:
+    settings:
+      attribute_name: title
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_main_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_main_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  links: true

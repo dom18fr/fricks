@@ -1,0 +1,29 @@
+uuid: 314a9e0e-6e7e-4c23-814c-424381ed46ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.realisation.body
+    - node.type.realisation
+  module:
+    - text
+    - user
+id: node.realisation.default
+targetEntityType: node
+bundle: realisation
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
