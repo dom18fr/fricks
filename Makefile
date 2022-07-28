@@ -60,7 +60,7 @@ install: stop drupal-clear-db-data rebuild mysql-wait stop-a restart drupal-vend
 
 .PHONY: drupal-clear-db-data
 drupal-clear-db-data:
-	docker volume rm fricks_drupal-db-data
+	docker volume rm fricks_drupal-db-data || true
 
 .PHONY: drupal-set-file-permission
 drupal-set-file-permission: 

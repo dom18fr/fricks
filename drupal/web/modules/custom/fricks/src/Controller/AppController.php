@@ -6,10 +6,9 @@ use Drupal\Core\Controller\ControllerBase;
 
 class AppController extends ControllerBase {
 
-  function content()
-  {
+  function content() {
     return [
-      '#markup' => 'ee',
+      '#markup' => '<div data-react="fricks"></div>',
     ];
   }
 }
