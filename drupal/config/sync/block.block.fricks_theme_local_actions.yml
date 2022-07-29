@@ -1,6 +1,6 @@
 uuid: 94472402-97fa-4af0-a8db-485fbedd48c6
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - fricks_theme

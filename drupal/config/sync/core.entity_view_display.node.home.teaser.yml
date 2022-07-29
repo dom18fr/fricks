@@ -20,6 +20,7 @@ content:
     weight: 100
     region: content
 hidden:
+  extra_field_node_title_normalized_extra_field: true
   field_main_image: true
   field_main_text: true
   langcode: true

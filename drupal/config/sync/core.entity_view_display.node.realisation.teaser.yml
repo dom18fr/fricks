@@ -28,4 +28,5 @@ content:
     weight: 100
     region: content
 hidden:
+  extra_field_node_title_normalized_extra_field: true
   langcode: true
