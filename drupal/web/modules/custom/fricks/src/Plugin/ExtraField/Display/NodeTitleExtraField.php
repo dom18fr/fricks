@@ -2,8 +2,6 @@
 
 namespace Drupal\fricks\Plugin\ExtraField\Display;
 
-use Drupal\fricks\Plugin\ExtraField\Display\AbstractNormalizedPropertyExtraField;
-
 /**
  * @ExtraFieldDisplay(
  *   id = "node_title_normalized_extra_field",
@@ -17,4 +15,3 @@ class NodeTitleExtraField extends AbstractNormalizedPropertyExtraField {
 
   const EXPOSED_PROPERTY = 'title';
 }
-

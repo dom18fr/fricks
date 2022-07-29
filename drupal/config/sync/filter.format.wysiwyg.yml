@@ -1,0 +1,8 @@
+uuid: 85ca4000-b62f-41aa-b949-59e370833ea0
+langcode: fr
+status: true
+dependencies: {  }
+name: WYSIWYG
+format: wysiwyg
+weight: 0
+filters: {  }

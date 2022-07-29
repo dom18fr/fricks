@@ -8,7 +8,7 @@ dependencies:
     - field.field.node.home.field_main_text
     - node.type.home
   module:
-    - text
+    - fricks
     - user
 id: node.home.api
 targetEntityType: node
@@ -22,16 +22,16 @@ content:
     weight: 0
     region: content
   field_main_image:
-    type: entity_reference_entity_view
+    type: emwh_embed_entity_reference_formatter
     label: hidden
     settings:
-      view_mode: default
+      view_mode: api
       link: false
     third_party_settings: {  }
     weight: 1
     region: content
   field_main_text:
-    type: text_default
+    type: emwh_normalized_text
     label: hidden
     settings: {  }
     third_party_settings: {  }

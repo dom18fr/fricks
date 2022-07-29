@@ -4,10 +4,9 @@ namespace Drupal\fricks\Plugin\rest\resource;
 
 use Drupal\Component\Plugin\DependentPluginInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\rest\Annotation\RestResource;
+use Drupal\fricks\Normalizer\EntityViewModeNormalizer;
 use Drupal\rest\Plugin\ResourceBase;
 use Exception;
-use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,65 +29,98 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
  */
 class EntityViewModeResource extends ResourceBase implements DependentPluginInterface {
 
-  protected SerializerInterface $serializer;
+  /**
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  private EntityTypeManagerInterface $entityTypeManager;
 
-  protected EntityTypeManagerInterface $entityTypeManager;
+  /**
+   * @var \Drupal\fricks\Normalizer\EntityViewModeNormalizer
+   */
+  private EntityViewModeNormalizer $entityViewModeNormalizer;
 
+  /**
+   * @var \Symfony\Component\HttpFoundation\RequestStack
+   */
   private RequestStack $requestStack;
 
-  public function __construct(
-    array $configuration,
-    string $plugin_id,
-    $plugin_definition,
-    array $serializer_formats,
-    LoggerInterface $logger,
-    SerializerInterface $serializer,
-    EntityTypeManagerInterface $entityTypeManager,
-    RequestStack $requestStack
-  ) {
-    parent::__construct(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $serializer_formats,
-      $logger
-    );
-    $this->serializer = $serializer;
-    $this->entityTypeManager = $entityTypeManager;
-    $this->requestStack = $requestStack;
-  }
-
+  /**
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   * @param array $configuration
+   * @param $plugin_id
+   * @param $plugin_definition
+   *
+   * @return static
+   */
   public static function create(
     ContainerInterface $container,
     array $configuration,
     $plugin_id,
     $plugin_definition
-  ): self
-  {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->getParameter('serializer.formats'),
-      $container->get('logger.factory')->get('rest'),
-      $container->get('serializer'),
-      $container->get('entity_type.manager'),
-      $container->get('request_stack'),
-      );
+  ): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+
+    /** @var EntityTypeManagerInterface $entityTypeManager */
+    $entityTypeManager = $container->get('entity_type.manager');
+    $instance->setEntityTypeManager($entityTypeManager);
+
+    /** @var EntityViewModeNormalizer $entityViewModeNormalizer */
+    $entityViewModeNormalizer = $container->get('fricks.entity_viewmode_normalizer');
+    $instance->setEntityViewModeNormalizer($entityViewModeNormalizer);
+
+    /** @var RequestStack $requestStack */
+    $requestStack = $container->get('request_stack');
+    $instance->setRequestStack($requestStack);
+
+    return $instance;
   }
 
+  /**
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
+   *
+   * @return void
+   */
+  public function setEntityTypeManager(EntityTypeManagerInterface $entityTypeManager): void {
+    $this->entityTypeManager = $entityTypeManager;
+  }
+
+  /**
+   * @param \Drupal\fricks\Normalizer\EntityViewModeNormalizer $entityViewModeNormalizer
+   *
+   * @return void
+   */
+  public function setEntityViewModeNormalizer(EntityViewModeNormalizer $entityViewModeNormalizer): void {
+    $this->entityViewModeNormalizer = $entityViewModeNormalizer;
+  }
+
+  /**
+   * @param \Symfony\Component\HttpFoundation\RequestStack $requestStack
+   *
+   * @return void
+   */
+  public function setRequestStack(RequestStack $requestStack): void {
+    $this->requestStack = $requestStack;
+  }
+
+  /**
+   * @param string $entityType
+   * @param string $identifier
+   * @param string $viewModeCode
+   *
+   * @return \Symfony\Component\HttpFoundation\Response
+   * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+   */
   public function get(string $entityType, string $identifier, string $viewModeCode): Response
   {
     $content = 'No resource found';
     if ($entity = $this->loadEntity($entityType, $identifier)) {
-      $context = [
+      $options = [
         'viewMode' => $viewModeCode,
         'page' => $this->requestStack->getCurrentRequest()->get('page'),
         'itemsPerPage' => $this->requestStack->getCurrentRequest()->get('itemsPerPage'),
-        'query' => $this->requestStack->getCurrentRequest()->query->all(),
+        'query' => $this->requestStack->getCurrentRequest()->query->all()
       ];
-      $content = $this->serializer
-        ->serialize($entity, 'json', $context);
+      $content = $this->entityViewModeNormalizer->getNormalized($entity, $viewModeCode, $options);
     }
 
     return new Response($content);
@@ -99,7 +131,12 @@ class EntityViewModeResource extends ResourceBase implements DependentPluginInte
     return [];
   }
 
-
+  /**
+   * @param string $entityType
+   * @param string $id
+   *
+   * @return \Drupal\Core\Entity\EntityInterface
+   */
   protected function loadEntity(string $entityType, string $id): EntityInterface
   {
     try {

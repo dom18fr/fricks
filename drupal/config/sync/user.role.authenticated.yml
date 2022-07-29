@@ -3,8 +3,10 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - filter.format.wysiwyg
     - rest.resource.fricks_entity_view_mode_resource
   module:
+    - filter
     - media
     - rest
     - system
@@ -17,4 +19,5 @@ is_admin: false
 permissions:
   - 'access content'
   - 'restful get fricks_entity_view_mode_resource'
+  - 'use text format wysiwyg'
   - 'view media'

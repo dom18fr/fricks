@@ -28,10 +28,14 @@
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <title>F.Ricks Atelier</title>
+    {# <head-placeholder token="{{ placeholder_token }}"> #}
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    {# <js-placeholder token="{{ placeholder_token }}"> #}
   </head>
-  <body>
+  <body{{ attributes }}>
     {{ page }}
-    <script src="/modules/custom/fricks/front/dist/main.js"></script>
+    <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
 </html>
+

@@ -1,0 +1,23 @@
+<?php
+/**
+ * @param $libraries
+ * @param $extension
+ *
+ * @return void
+ */
+function fricks_theme_library_info_alter(&$libraries, $extension) {
+  switch ($extension) {
+    case 'core':
+      $libraries = [
+        'drupalSettings' => $libraries['drupalSettings']
+      ];
+
+      return;
+    case 'fricks':
+    case'fricks_theme':
+
+      return;
+    default:
+      $libraries = [];
+  }
+}
