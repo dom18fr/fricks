@@ -152,6 +152,10 @@ spip-import: ## import spip content into drupal
 .PHONY: reload 
 reload: mysql-restore cr cim spip-import ## restore backuped databe, update config and start import
 
+.PHONY: front-vendor
+front-vendor:
+	$(call dc, exec,drupal, bash -c "cd ../front && npm ci")
+
 .PHONY: front-watch
 front-watch:
 	$(call dc,exec,drupal, bash -c "cd ../front && npm run watch")
