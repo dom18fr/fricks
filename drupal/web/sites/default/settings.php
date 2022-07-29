@@ -249,7 +249,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = '117Rsyx2WsiQaLQ26fiQjn8-9SKwVtNQyechg0Xa1BfkmXOc0xswjUVkagFPlEJMqneGP8dr6Q';
 
 /**
  * Deployment identifier.
@@ -765,7 +765,18 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
  *
  * Keep this code block at the end of this file to take full effect.
  */
-#
-# if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
-#   include $app_root . '/' . $site_path . '/settings.local.php';
-# }
+$databases['default']['default'] = array (
+  'database' => getenv('FRICKS_DATABASE_NAME'),
+  'username' => getenv('FRICKS_DATABASE_USER'),
+  'password' => getenv('FRICKS_DATABASE_PASSWORD'),
+  'prefix' => '',
+  'host' => getenv('FRICKS_DATABASE_HOST'),
+  'port' => getenv('FRICKS_DATABASE_PORT'),
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => getenv('FRICKS_DATABASE_DRIVER'),
+);
+$settings['config_sync_directory'] = '../config/sync';
+
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
