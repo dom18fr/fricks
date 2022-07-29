@@ -40,7 +40,7 @@ RUN curl -sL https://deb.nodesource.com/setup_12.x  | bash -
 RUN apt-get -y install nodejs
 
 RUN useradd docker --shell /bin/bash --create-home \
-    && usermod -u 1001 docker  \
+    && usermod -u 1000 docker  \
     && usermod --append --groups sudo docker \
     && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && echo 'docker:secret' | chpasswd
