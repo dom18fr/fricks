@@ -1,0 +1,32 @@
+uuid: 54116ef1-8cb8-4cba-a043-19362b51f81f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.material.field_machine_name
+    - taxonomy.vocabulary.material
+id: taxonomy_term.material.default
+targetEntityType: taxonomy_term
+bundle: material
+mode: default
+content:
+  field_machine_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  status: true

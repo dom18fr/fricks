@@ -1,6 +1,8 @@
 import React from 'react'
 
-const AchievementsPager = ({ page, totalPages }) => {
+import { AchivementsPagerProps } from '../../types'
+
+const AchievementsPager = ({ page, totalPages, onPageChange }: AchivementsPagerProps) => {
   return (
     <div className="achievementsPager">
         <ul>

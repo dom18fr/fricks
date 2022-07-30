@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.realisation.field_categories
     - field.field.node.realisation.field_description
     - field.field.node.realisation.field_main_picture
     - node.type.realisation
@@ -14,6 +15,14 @@ targetEntityType: node
 bundle: realisation
 mode: default
 content:
+  field_categories:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
   field_description:
     type: text_default
     label: above

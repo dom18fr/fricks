@@ -1,0 +1,8 @@
+uuid: 1a3727e3-2959-4501-86ef-5c87f73e226d
+langcode: fr
+status: true
+dependencies: {  }
+name: Matériaux
+vid: material
+description: ''
+weight: 0

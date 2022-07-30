@@ -115,7 +115,6 @@ class EntityViewModeResource extends ResourceBase implements DependentPluginInte
       $options = [
         'viewMode' => $viewModeCode,
         'page' => $this->requestStack->getCurrentRequest()->get('page'),
-        'itemsPerPage' => $this->requestStack->getCurrentRequest()->get('itemsPerPage'),
         'query' => $this->requestStack->getCurrentRequest()->query->all()
       ];
       $content = $this->entityViewModeNormalizer->getNormalized($entity, $viewModeCode, $options);

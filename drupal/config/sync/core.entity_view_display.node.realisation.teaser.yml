@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.realisation.field_categories
     - field.field.node.realisation.field_description
     - field.field.node.realisation.field_main_picture
     - node.type.realisation
@@ -21,6 +22,7 @@ content:
     region: content
 hidden:
   extra_field_node_title_normalized_extra_field: true
+  field_categories: true
   field_description: true
   field_main_picture: true
   langcode: true

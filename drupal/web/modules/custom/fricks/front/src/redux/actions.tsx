@@ -14,7 +14,7 @@ export const fetchAchievementData = (filters: AchievementsFiltersType, page: num
   try {
     const { data: { collection = [] } = {} } = await DrupalClient.get({ 
       route: '/api/entity/view/achievements/api.api', 
-      queryParams: { filters, page } 
+      queryParams: { ...filters, page }
     })
     dispatch(setAchivementsCollection(collection))
     dispatch(setAchivementsIsLoading(false))

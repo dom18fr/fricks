@@ -1,0 +1,25 @@
+uuid: f53d3e23-a78e-4436-b7fc-aea98442eebf
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.api
+    - field.field.taxonomy_term.location.field_machine_name
+    - taxonomy.vocabulary.location
+  module:
+    - fricks
+id: taxonomy_term.location.api
+targetEntityType: taxonomy_term
+bundle: location
+mode: api
+content:
+  field_machine_name:
+    type: emwh_string_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  description: true
+  langcode: true

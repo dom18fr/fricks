@@ -3,6 +3,8 @@ import classnames from 'classnames'
 
 import { AchievementsFiltersProps, FiltersDefintionItem, FiltersDefintionType } from '../../types'
 
+// @todo: find a way to filter on taxonomy term code, not tid :/
+
 const AchievementsFilters = ({ onFiltersChange, filters }: AchievementsFiltersProps) => (
   <div className="achievementsFilters">
     {

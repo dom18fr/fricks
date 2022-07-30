@@ -1,0 +1,31 @@
+uuid: 6162a321-4301-4687-a2b0-9b2dc17d8f98
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categories
+    - node.type.realisation
+    - taxonomy.vocabulary.location
+    - taxonomy.vocabulary.material
+id: node.realisation.field_categories
+field_name: field_categories
+entity_type: node
+bundle: realisation
+label: Categories
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+      material: material
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: location
+field_type: entity_reference

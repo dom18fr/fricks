@@ -35,7 +35,6 @@ class JsonViewEntityNormalizer extends ContentEntityNormalizer {
     if ($context['viewMode'] && strpos($context['viewMode'], self::VIEW_MODE_SEPARATOR)) {
       [$displayMode, $viewMode] = explode(self::VIEW_MODE_SEPARATOR, $context['viewMode']);
     }
-
     if (is_object($view)) {
       // Drupal pager starts at 0
       $view->get_total_rows = true;

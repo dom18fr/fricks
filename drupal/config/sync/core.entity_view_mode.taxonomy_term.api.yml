@@ -1,0 +1,10 @@
+uuid: 8c1f122d-0fb3-4bb7-b8f7-f61af6ecfdcb
+langcode: fr
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.api
+label: api
+targetEntityType: taxonomy_term
+cache: true

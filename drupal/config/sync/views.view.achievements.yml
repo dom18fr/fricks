@@ -4,9 +4,17 @@ status: true
 dependencies:
   config:
     - node.type.realisation
+    - taxonomy.vocabulary.location
+    - taxonomy.vocabulary.material
+  content:
+    - 'taxonomy_term:location:54e3886d-67c8-4319-8e53-10e78e31d394'
+    - 'taxonomy_term:location:b1f86d82-a35c-40e9-a004-7c417d77f689'
+    - 'taxonomy_term:material:2a48d63b-b443-4ad0-a607-c17da31501b1'
+    - 'taxonomy_term:material:49c3d174-d3ef-4a4e-9843-412d63301211'
   module:
     - fricks
     - node
+    - taxonomy
     - user
 id: achievements
 label: achievements
@@ -150,6 +158,102 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_categories_target_id:
+          id: field_categories_target_id
+          table: node__field_categories
+          field: field_categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: location
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            4: 4
+            3: 3
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_categories_target_id_op
+            label: 'Categories (field_categories)'
+            description: ''
+            use_operator: false
+            operator: field_categories_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: location
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: location
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
+        field_categories_target_id_1:
+          id: field_categories_target_id_1
+          table: node__field_categories
+          field: field_categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: Material
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value:
+            1: 1
+            2: 2
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_categories_target_id_1_op
+            label: 'Categories (field_categories)'
+            description: ''
+            use_operator: false
+            operator: field_categories_target_id_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: material
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          vid: material
+          type: select
+          hierarchy: false
+          limit: true
+          error_message: true
       style:
         type: array_normalizer
         options:
@@ -178,7 +282,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -196,7 +302,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

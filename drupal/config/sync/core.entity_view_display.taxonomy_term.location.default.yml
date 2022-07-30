@@ -1,0 +1,31 @@
+uuid: 589a591c-7912-4fb9-9a43-c2a6891f1851
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.location.field_machine_name
+    - taxonomy.vocabulary.location
+  module:
+    - text
+id: taxonomy_term.location.default
+targetEntityType: taxonomy_term
+bundle: location
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_machine_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
