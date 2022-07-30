@@ -6,6 +6,7 @@ import { Action, Reducer, RootState } from '../types'
 export const types = {
   SET_STATIC_CONTENT_DATA: 'SET_STATIC_CONTENT_DATA',
   SET_ACHIEVEMENTS_COLLECTION: 'SET_ACHIEVEMENTS_COLLECTION',
+  SET_ACHIEVEMENTS_TOTAL_ITEMS: 'SET_ACHIEVEMENTS_TOTAL_ITEMS',
   SET_ACHIEVEMENTS_IS_LOADING: 'SET_ACHIEVEMENTS_IS_LOADING',
   SET_YOUR_PROJECT_DATA: 'SET_YOUR_PROJECT_DATA',
 }
@@ -44,6 +45,11 @@ const achievements = (
       return {
         ...state,
         collection: payload
+      }
+    case types.SET_ACHIEVEMENTS_TOTAL_ITEMS:
+      return {
+        ...state,
+        totalItems: payload
       }
     default:
       return state

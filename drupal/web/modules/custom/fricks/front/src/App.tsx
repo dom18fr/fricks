@@ -20,10 +20,10 @@ const App = ({ drupalData }: AppProps) => {
   
   return (
     <main>
-      <Header />
+      {/* <Header /> */}
       <Achievements />
-      <YourProject />
-      <Contact />
+      {/* <YourProject /> */}
+      {/* <Contact /> */}
     </main>
   )
 }

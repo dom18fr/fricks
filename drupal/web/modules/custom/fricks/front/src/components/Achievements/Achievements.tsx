@@ -15,10 +15,10 @@ const Achievements = () => {
 
   const dispatch = useDispatch()
 
-  const { title, achievements, totalPages, isLoading } = useSelector((state: RootState) => ({
+  const { title, achievements, totalItems, isLoading } = useSelector((state: RootState) => ({
     title: DrupalClient.extract({ field: state?.staticContent?.field_achievement_title }),
     achievements: state?.achievements?.collection || [],
-    totalPages: state?.achievements?.totalItems || 0,
+    totalItems: state?.achievements?.totalItems || 0,
     isLoading: state?.achievements?.isLoading
   }))
   
@@ -27,7 +27,7 @@ const Achievements = () => {
 
   useEffect(
     () => {
-      dispatch(fetchAchievementData(filters, page))
+      dispatch(fetchAchievementData(filters, page, 2))
     },
     [ filters, page, dispatch ]
   )
@@ -37,15 +37,19 @@ const Achievements = () => {
       <h2 className="title-2">{ title }</h2>
       <AchievementFilters 
         filters={filters}
-        onFiltersChange={setFilters}
+        onFiltersChange={(...args) => {
+          setFilters(...args)
+          setPage(0)
+        }}
       />
       <div className="achivementsGridWrapper">
         { isLoading && <Loader /> }
         <AchievementsGrid achievements={achievements} />
       </div>
       <AchievementsPager 
-        page={page} 
-        totalPages={totalPages}
+        page={page}
+        totalItems={totalItems}
+        itemsPerPage={2}
         onPageChange={setPage}
       />
     </section>

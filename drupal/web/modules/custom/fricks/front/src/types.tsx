@@ -29,6 +29,10 @@ export type GetParams = {
 
 export type DrupalFieldItem = Record<string,string|number>
 
+export type DrupalEmbedEntityFieldItem = Record<string,DrupalFieldItemList>
+
+export type DrupalEmbedEntityFieldItemList = Array<DrupalEmbedEntityFieldItem>
+
 export type DrupalFieldItemList = Array<DrupalFieldItem>
 
 export type ExtractDrupalFieldValue = {
@@ -46,6 +50,8 @@ export type DrupalFieldValue = DrupalFieldItemValue|DrupalFieldItemListValue
 export type AchivementItem = {
   title: DrupalFieldItemList
   field_main_picture: DrupalFieldItemList
+  field_location: DrupalEmbedEntityFieldItemList
+  field_material: DrupalEmbedEntityFieldItemList
 }
 
 export type AchievementsGridProps = {
@@ -82,6 +88,12 @@ export type FiltersDefintionType = Array<FiltersDefintionItem>
 
 export type AchivementsPagerProps = {
   page: number
-  totalPages: number,
+  itemsPerPage: number
+  totalItems: number
   onPageChange: (page: number) => void
+}
+
+export type AchievementItemFilterTagsProps = {
+  location: DrupalEmbedEntityFieldItemList
+  material: DrupalEmbedEntityFieldItemList
 }

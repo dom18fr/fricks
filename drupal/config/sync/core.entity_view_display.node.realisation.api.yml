@@ -30,6 +30,15 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_location:
+    type: emwh_embed_entity_reference_formatter
+    label: above
+    settings:
+      view_mode: api
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_main_picture:
     type: emwh_embed_entity_reference_formatter
     label: above
@@ -39,8 +48,15 @@ content:
     third_party_settings: {  }
     weight: 1
     region: content
+  field_material:
+    type: emwh_embed_entity_reference_formatter
+    label: above
+    settings:
+      view_mode: api
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
 hidden:
-  field_location: true
-  field_material: true
   langcode: true
   links: true
