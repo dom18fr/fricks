@@ -2,9 +2,7 @@
 
 namespace Drupal\fricks\Normalizer;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\serialization\Normalizer\ContentEntityNormalizer;
-use Drupal\views\Entity\View;
 use Drupal\views\ViewEntityInterface;
 
 
@@ -21,26 +19,12 @@ class JsonViewEntityNormalizer extends ContentEntityNormalizer {
    */
   protected $supportedInterfaceOrClass = ViewEntityInterface::class;
 
-  /** @var EntityTypeManagerInterface */
-  protected $entityTypeManager;
-
   /**
-   * FrontJsonContentEntityNormalizer constructor.
-   *
-   * @param EntityTypeManagerInterface $entityTypeManager
-   */
-  public function __construct(
-    EntityTypeManagerInterface $entityTypeManager
-  ) {
-    parent::__construct($entityTypeManager);
-  }
-
-  /**
-   * @param View $entity
-   * @param null $format
+   * @param $entity
+   * @param $format
    * @param array $context
    *
-   * @return array|bool|float|int|string|null
+   * @return array|\ArrayObject|bool|float|int|string|null
    */
   public function normalize($entity, $format = null, array $context = []) {
     $view = $entity->getExecutable();

@@ -4,24 +4,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.realisation.body
+    - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_main_picture
     - node.type.realisation
   module:
-    - text
     - user
 id: node.realisation.teaser
 targetEntityType: node
 bundle: realisation
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 101
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -29,4 +21,6 @@ content:
     region: content
 hidden:
   extra_field_node_title_normalized_extra_field: true
+  field_description: true
+  field_main_picture: true
   langcode: true

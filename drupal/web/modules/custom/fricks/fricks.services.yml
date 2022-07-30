@@ -14,9 +14,11 @@ services:
       - '@entity_field.manager'
       - '@plugin.manager.extra_field_display'
 
-#  fricks.serializer.normalizer.json_view_entity_normalizer:
-#    class: Drupal\fricks\Normalizer\JsonViewEntityNormalizer
-#    tags:
-#      - { name: normalizer, priority: 20 }
-#    arguments:
-#      - '@entity_type.manager'
+  fricks.serializer.normalizer.json_view_entity_normalizer:
+    class: Drupal\fricks\Normalizer\JsonViewEntityNormalizer
+    tags:
+      - { name: normalizer, priority: 20 }
+    arguments:
+      - '@entity_type.manager'
+      - '@entity_type.repository'
+      - '@entity_field.manager'

@@ -7,12 +7,12 @@ type DrupalClientType = {
 
 type GetProps = {
   route: string
-  queryParams?: Record<string,string>
+  queryParams?: Record<string,any>
 }
 
-type DrupalFieldItem = Record<string,string|number>
+export type DrupalFieldItem = Record<string,string|number>
 
-type DrupalFieldItemList = Array<DrupalFieldItem>
+export type DrupalFieldItemList = Array<DrupalFieldItem>
 
 type ExtractDrupalFieldValue = {
   field: DrupalFieldItemList

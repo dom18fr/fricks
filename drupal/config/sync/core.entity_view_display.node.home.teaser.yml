@@ -4,6 +4,7 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.home.field_achievement_title
     - field.field.node.home.field_main_image
     - field.field.node.home.field_main_text
     - node.type.home
@@ -21,6 +22,7 @@ content:
     region: content
 hidden:
   extra_field_node_title_normalized_extra_field: true
+  field_achievement_title: true
   field_main_image: true
   field_main_text: true
   langcode: true

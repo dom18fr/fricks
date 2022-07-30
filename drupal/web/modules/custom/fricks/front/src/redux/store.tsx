@@ -1,16 +1,6 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-
-type ActionTypes = {
-  SET_STATIC_CONTENT_DATA: string
-  SET_ACHIEVEMENTS_DATA: string
-  SET_YOUR_PROJECT_DATA: string
-}
-
-type Action = {
-  type: keyof ActionTypes
-  payload?: Record<any,any>
-}
+import { Action } from './actions'
 
 type Reducer = Record<any,any>
 
@@ -20,9 +10,10 @@ export type RootState = {
   yourProject?: Record<any,any>
 }
 
-export const types: ActionTypes = {
+export const types = {
   SET_STATIC_CONTENT_DATA: 'SET_STATIC_CONTENT_DATA',
-  SET_ACHIEVEMENTS_DATA: 'SET_ACHIEVEMENTS_DATA',
+  SET_ACHIEVEMENTS_COLLECTION: 'SET_ACHIEVEMENTS_COLLECTION',
+  SET_ACHIEVEMENTS_IS_LOADING: 'SET_ACHIEVEMENTS_IS_LOADING',
   SET_YOUR_PROJECT_DATA: 'SET_YOUR_PROJECT_DATA',
 }
 
@@ -51,6 +42,16 @@ const achievements = (
   { type, payload }: Action
 ): Reducer => {
   switch (type) {
+    case types.SET_ACHIEVEMENTS_IS_LOADING:
+      return {
+        ...state,
+        isLoading: payload
+      }
+    case types.SET_ACHIEVEMENTS_COLLECTION:
+      return {
+        ...state,
+        collection: payload
+      }
     default:
       return state
   }

@@ -1,19 +1,18 @@
-uuid: 44a969ac-c1bb-4614-a8d0-c49ef9c8fc3a
+uuid: f7ae12e1-88de-456c-aa99-e0e32160d4f4
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.api
-    - field.field.node.home.field_achievement_title
-    - field.field.node.home.field_main_image
-    - field.field.node.home.field_main_text
-    - node.type.home
+    - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_main_picture
+    - node.type.realisation
   module:
     - fricks
     - user
-id: node.home.api
+id: node.realisation.api
 targetEntityType: node
-bundle: home
+bundle: realisation
 mode: api
 content:
   extra_field_node_title_normalized_extra_field:
@@ -22,28 +21,21 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_achievement_title:
-    type: emwh_string_formatter
+  field_description:
+    type: emwh_normalized_text
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 3
+    weight: 2
     region: content
-  field_main_image:
+  field_main_picture:
     type: emwh_embed_entity_reference_formatter
-    label: hidden
+    label: above
     settings:
       view_mode: api
       link: false
     third_party_settings: {  }
     weight: 1
-    region: content
-  field_main_text:
-    type: emwh_normalized_text
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
     region: content
 hidden:
   langcode: true

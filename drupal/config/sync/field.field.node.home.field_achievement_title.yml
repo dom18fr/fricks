@@ -1,0 +1,19 @@
+uuid: bbf382c0-c87e-48a5-baf7-79cbeddd25bf
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_achievement_title
+    - node.type.home
+id: node.home.field_achievement_title
+field_name: field_achievement_title
+entity_type: node
+bundle: home
+label: 'Titre de la section'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.realisation.body
+    - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_main_picture
     - node.type.realisation
   module:
     - text
@@ -13,12 +14,21 @@ targetEntityType: node
 bundle: realisation
 mode: default
 content:
-  body:
+  field_description:
     type: text_default
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 102
+    region: content
+  field_main_picture:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 103
     region: content
   links:
     settings: {  }

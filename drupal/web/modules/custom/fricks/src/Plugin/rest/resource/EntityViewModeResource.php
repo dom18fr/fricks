@@ -8,6 +8,7 @@ use Drupal\fricks\Normalizer\EntityViewModeNormalizer;
 use Drupal\rest\Plugin\ResourceBase;
 use Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -107,11 +108,10 @@ class EntityViewModeResource extends ResourceBase implements DependentPluginInte
    * @param string $identifier
    * @param string $viewModeCode
    *
-   * @return \Symfony\Component\HttpFoundation\Response
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
    * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
    */
-  public function get(string $entityType, string $identifier, string $viewModeCode): Response
-  {
+  public function get(string $entityType, string $identifier, string $viewModeCode): Response {
     $content = 'No resource found';
     if ($entity = $this->loadEntity($entityType, $identifier)) {
       $options = [
@@ -122,8 +122,8 @@ class EntityViewModeResource extends ResourceBase implements DependentPluginInte
       ];
       $content = $this->entityViewModeNormalizer->getNormalized($entity, $viewModeCode, $options);
     }
-
-    return new Response($content);
+    
+    return new Response(json_encode($content));
   }
 
   public function calculateDependencies(): array

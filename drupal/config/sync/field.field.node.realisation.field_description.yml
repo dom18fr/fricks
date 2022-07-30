@@ -1,0 +1,21 @@
+uuid: 9ba0a0f1-ba22-4e15-98ba-97668df5ea11
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.realisation
+  module:
+    - text
+id: node.realisation.field_description
+field_name: field_description
+entity_type: node
+bundle: realisation
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
