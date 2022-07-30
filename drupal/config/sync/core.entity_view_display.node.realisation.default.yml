@@ -3,9 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.realisation.field_categories
     - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_location
     - field.field.node.realisation.field_main_picture
+    - field.field.node.realisation.field_material
     - node.type.realisation
   module:
     - text
@@ -15,20 +16,20 @@ targetEntityType: node
 bundle: realisation
 mode: default
 content:
-  field_categories:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 104
-    region: content
   field_description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 102
+    region: content
+  field_location:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
     region: content
   field_main_picture:
     type: entity_reference_entity_view
@@ -38,6 +39,14 @@ content:
       link: false
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_material:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }

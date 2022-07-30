@@ -1,12 +1,12 @@
-uuid: 8f986a6f-93ae-44ad-bbb1-3b16efced12b
+uuid: 44ee52c5-08f7-49b4-90a3-a6aba34d927c
 langcode: fr
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_categories
-field_name: field_categories
+id: node.field_material
+field_name: field_material
 entity_type: node
 type: entity_reference
 settings:

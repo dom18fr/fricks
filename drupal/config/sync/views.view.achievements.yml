@@ -4,13 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.realisation
-    - taxonomy.vocabulary.location
-    - taxonomy.vocabulary.material
-  content:
-    - 'taxonomy_term:location:54e3886d-67c8-4319-8e53-10e78e31d394'
-    - 'taxonomy_term:location:b1f86d82-a35c-40e9-a004-7c417d77f689'
-    - 'taxonomy_term:material:2a48d63b-b443-4ad0-a607-c17da31501b1'
-    - 'taxonomy_term:material:49c3d174-d3ef-4a4e-9843-412d63301211'
   module:
     - fricks
     - node
@@ -158,26 +151,24 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
-        field_categories_target_id:
-          id: field_categories_target_id
-          table: node__field_categories
-          field: field_categories_target_id
-          relationship: none
+        field_machine_name_value:
+          id: field_machine_name_value
+          table: taxonomy_term__field_machine_name
+          field: field_machine_name_value
+          relationship: field_location
           group_type: group
-          admin_label: location
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            4: 4
-            3: 3
+          admin_label: ''
+          plugin_id: string
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: field_categories_target_id_op
-            label: 'Categories (field_categories)'
+            operator_id: field_machine_name_value_op
+            label: 'code (field_machine_name)'
             description: ''
             use_operator: false
-            operator: field_categories_target_id_op
+            operator: field_machine_name_value_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: location
@@ -187,7 +178,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-            reduce: true
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -200,42 +191,34 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: true
-          vid: location
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_categories_target_id_1:
-          id: field_categories_target_id_1
-          table: node__field_categories
-          field: field_categories_target_id
-          relationship: none
+        field_machine_name_value_1:
+          id: field_machine_name_value_1
+          table: taxonomy_term__field_machine_name
+          field: field_machine_name_value
+          relationship: field_material
           group_type: group
-          admin_label: Material
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value:
-            1: 1
-            2: 2
+          admin_label: ''
+          plugin_id: string
+          operator: contains
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: field_categories_target_id_1_op
-            label: 'Categories (field_categories)'
+            operator_id: field_machine_name_value_1_op
+            label: 'code (field_machine_name)'
             description: ''
             use_operator: false
-            operator: field_categories_target_id_1_op
+            operator: field_machine_name_value_1_op
             operator_limit_selection: false
             operator_list: {  }
             identifier: material
             required: false
             remember: false
-            multiple: true
+            multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-            reduce: true
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -248,12 +231,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          reduce_duplicates: true
-          vid: material
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
       style:
         type: array_normalizer
         options:
@@ -272,7 +249,26 @@ display:
           distinct: false
           replica: false
           query_tags: {  }
-      relationships: {  }
+      relationships:
+        field_location:
+          id: field_location
+          table: node__field_location
+          field: field_location
+          relationship: none
+          group_type: group
+          admin_label: Location
+          plugin_id: standard
+          required: false
+        field_material:
+          id: field_material
+          table: node__field_material
+          field: field_material
+          relationship: none
+          group_type: group
+          admin_label: Material
+          plugin_id: standard
+          required: false
+      group_by: true
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -284,7 +280,6 @@ display:
         - request_format
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -304,7 +299,6 @@ display:
         - request_format
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

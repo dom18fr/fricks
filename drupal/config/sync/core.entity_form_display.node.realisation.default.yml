@@ -3,9 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.realisation.field_categories
     - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_location
     - field.field.node.realisation.field_main_picture
+    - field.field.node.realisation.field_material
     - node.type.realisation
   module:
     - media_library
@@ -17,19 +18,9 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_categories:
-    type: entity_reference_autocomplete
-    weight: 3
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_description:
     type: text_textarea
@@ -39,6 +30,12 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_location:
+    type: options_buttons
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_main_picture:
     type: media_library_widget
     weight: 1
@@ -46,9 +43,15 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  field_material:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 6
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -63,7 +66,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS

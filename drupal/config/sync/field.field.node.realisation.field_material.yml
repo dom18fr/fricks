@@ -1,17 +1,16 @@
-uuid: 6162a321-4301-4687-a2b0-9b2dc17d8f98
+uuid: a0f59a00-b139-474b-8748-c5180e5b822b
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_categories
+    - field.storage.node.field_material
     - node.type.realisation
-    - taxonomy.vocabulary.location
     - taxonomy.vocabulary.material
-id: node.realisation.field_categories
-field_name: field_categories
+id: node.realisation.field_material
+field_name: field_material
 entity_type: node
 bundle: realisation
-label: Categories
+label: Matériau
 description: ''
 required: false
 translatable: false
@@ -21,11 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      location: location
       material: material
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: location
+    auto_create_bundle: ''
 field_type: entity_reference

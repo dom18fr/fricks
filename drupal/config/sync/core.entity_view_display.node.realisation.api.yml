@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.api
-    - field.field.node.realisation.field_categories
     - field.field.node.realisation.field_description
+    - field.field.node.realisation.field_location
     - field.field.node.realisation.field_main_picture
+    - field.field.node.realisation.field_material
     - node.type.realisation
   module:
     - fricks
@@ -21,15 +22,6 @@ content:
       attribute_name: title
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_categories:
-    type: emwh_embed_entity_reference_formatter
-    label: above
-    settings:
-      view_mode: api
-      link: false
-    third_party_settings: {  }
-    weight: 3
     region: content
   field_description:
     type: emwh_normalized_text
@@ -48,5 +40,7 @@ content:
     weight: 1
     region: content
 hidden:
+  field_location: true
+  field_material: true
   langcode: true
   links: true
