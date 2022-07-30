@@ -57,6 +57,7 @@ abstract class NormalizedFieldFormatter extends FormatterBase {
    * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
    */
   public function viewElements(FieldItemListInterface $items, $langcode): array {
+
     return $this->serializer->normalize($items, 'json');
   }
 }

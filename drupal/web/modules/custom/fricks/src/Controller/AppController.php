@@ -14,6 +14,11 @@ class AppController extends ControllerBase {
    */
   private EntityViewModeNormalizer $entityViewModeNormalizer;
 
+  /**
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
+   *
+   * @return \Drupal\fricks\Controller\AppController
+   */
   public static function create(ContainerInterface $container): AppController {
     $instance = parent::create($container);
     /** @var \Drupal\fricks\Normalizer\EntityViewModeNormalizer $entityViewModeNormalizer */

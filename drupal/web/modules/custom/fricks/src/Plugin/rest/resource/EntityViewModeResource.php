@@ -8,12 +8,10 @@ use Drupal\fricks\Normalizer\EntityViewModeNormalizer;
 use Drupal\rest\Plugin\ResourceBase;
 use Exception;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Serializer\SerializerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
@@ -122,7 +120,7 @@ class EntityViewModeResource extends ResourceBase implements DependentPluginInte
       ];
       $content = $this->entityViewModeNormalizer->getNormalized($entity, $viewModeCode, $options);
     }
-    
+
     return new Response(json_encode($content));
   }
 

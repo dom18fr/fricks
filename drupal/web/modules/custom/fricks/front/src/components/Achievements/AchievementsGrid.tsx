@@ -1,14 +1,8 @@
 import React from 'react'
-import DrupalClient, { DrupalFieldItemList } from '../helpers/DrupalClient'
 
-type AchivementItem = {
-  title: DrupalFieldItemList
-  field_main_picture: DrupalFieldItemList
-}
+import { AchievementsGridProps, AchivementItem } from '../../types'
 
-type AchievementsGridProps = {
-  achievements: Array<AchivementItem>
-}
+import DrupalClient from '../../helpers/DrupalClient'
 
 const AchievementsGrid = ({ achievements }: AchievementsGridProps) =>  (
   <>
@@ -17,7 +11,11 @@ const AchievementsGrid = ({ achievements }: AchievementsGridProps) =>  (
         ({ title, field_main_picture }: AchivementItem, index: number) => (
           <ul key={index} className="achievementsGrid">
             <li className="achievementTeaser">
-              <img src={ DrupalClient.extract({field: field_main_picture, type: 'image'})?.toString() } className="achievementTeaserImage"/>
+              <img 
+                width="100" // @todo: remove it
+                src={ DrupalClient.extract({field: field_main_picture, type: 'image'})?.toString() } 
+                className="achievementTeaserImage"
+              />
               <h3 className="achievementTeaserName title-3">{ DrupalClient.extract({field: title}) }</h3>
             </li>
           </ul>

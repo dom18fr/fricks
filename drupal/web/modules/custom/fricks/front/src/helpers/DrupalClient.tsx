@@ -1,33 +1,17 @@
 import Axios, { AxiosResponse } from 'axios'
 
-type DrupalClientType = {
-  get: (a: GetProps) => Promise<AxiosResponse>
-  extract: (a: ExtractDrupalFieldValue) => DrupalFieldValue
-}
-
-type GetProps = {
-  route: string
-  queryParams?: Record<string,any>
-}
-
-export type DrupalFieldItem = Record<string,string|number>
-
-export type DrupalFieldItemList = Array<DrupalFieldItem>
-
-type ExtractDrupalFieldValue = {
-  field: DrupalFieldItemList
-  type?: string
-  cardinality?: number 
-}
-
-type DrupalFieldItemValue = string|number|undefined
-
-type DrupalFieldItemListValue = Array<DrupalFieldItemValue>
-
-type DrupalFieldValue = DrupalFieldItemValue|DrupalFieldItemListValue
+import { 
+  DrupalClientType, 
+  GetParams, 
+  ExtractDrupalFieldValue, 
+  DrupalFieldItemList, 
+  DrupalFieldItem, 
+  DrupalFieldValue, 
+  DrupalFieldItemValue 
+} from '../types'
 
 const DrupalClient: DrupalClientType = ({
-  get: async ({ route, queryParams }: GetProps): Promise<AxiosResponse> => Axios.request({
+  get: async ({ route, queryParams }: GetParams): Promise<AxiosResponse> => Axios.request({
     baseURL: '/', //@toto: use proper env variable
     url: route,
     params: queryParams

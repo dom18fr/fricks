@@ -5,15 +5,13 @@ namespace Drupal\fricks\Plugin\views\display;
 use Drupal\Core\Render\RenderContext;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
+use JetBrains\PhpStorm\ArrayShape;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * The plugin that handles an embed display.
  *
  * @ingroup views_display_plugins
- *
- * @todo: Wait until annotations/plugins support access methods.
- * no_ui => !\Drupal::config('views.settings')->get('ui.show.display_embed'),
  *
  * @ViewsDisplay(
  *   id = "fricks_normalized_display",
@@ -25,84 +23,79 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class NormalizedDisplay extends DisplayPluginBase {
 
   /**
-   * Constructs a RestExport object.
-   *
+   * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    * @param array $configuration
-   *   A configuration array containing information about the plugin instance.
-   * @param string $plugin_id
-   *   The plugin_id for the plugin instance.
-   * @param mixed $plugin_definition
-   *   The plugin implementation definition.
-   * @param \Drupal\Core\Routing\RouteProviderInterface $route_provider
-   *   The route provider.
-   * @param \Drupal\Core\State\StateInterface $state
-   *   The state key value store.
-   * @param \Drupal\Core\Render\RendererInterface $renderer
-   *   The renderer.
-   * @param string[] $authentication_providers
-   *   The authentication providers, keyed by ID.
-   * @param string[] $serializer_format_providers
-   *   The serialization format providers, keyed by format.
+   * @param $plugin_id
+   * @param $plugin_definition
+   *
+   * @return static
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RendererInterface $renderer) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition): self {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    /** @var \Drupal\Core\Render\RendererInterface $renderer */
+    $renderer = $container->get('renderer');
+    $instance->setRenderer($renderer);
 
+    return $instance;
+  }
+
+  /**
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   *
+   * @return void
+   */
+  public function setRenderer(RendererInterface $renderer): void {
     $this->renderer = $renderer;
   }
 
   /**
-   * {@inheritdoc}
+   * @return string
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
-      $configuration,
-      $plugin_id,
-      $plugin_definition,
-      $container->get('renderer'),
-      );
-  }
+  public function getType(): string {
 
-  /**
-   * {@inheritdoc}
-   */
-  public function getType() {
     return 'data';
   }
 
   /**
-   * {@inheritdoc}
+   * @return bool
    */
-  public function usesExposed() {
+  public function usesExposed(): bool {
+
     return true;
   }
 
   /**
-   * {@inheritdoc}
+   * @return false
    */
-  public function displaysExposed() {
+  public function displaysExposed(): bool {
+
     return false;
   }
 
-  public function render() {
-    //$this->view->get_total_rows = TRUE;
-    $build = $this->renderer->executeInRenderContext(new RenderContext(), function () {
+  /**
+   * @return array
+   */
+  public function render(): array {
+    return $this->renderer->executeInRenderContext(new RenderContext(), function () {
+
       return $this->view->style_plugin->render();
     });
-
-    return $build;
   }
 
   /**
-   * {@inheritdoc}
+   * @return array
    */
-  public function preview() {
+  #[ArrayShape([
+    '#prefix' => "string",
+    '#markup' => "false|string",
+    '#suffix' => "string"
+  ])]
+  public function preview(): array {
 
-    $output = [
+    return [
       '#prefix' => '<pre>',
       '#markup' => json_encode($this->view->render()),
       '#suffix' => '</pre>',
     ];
-
-    return $output;
   }
 }

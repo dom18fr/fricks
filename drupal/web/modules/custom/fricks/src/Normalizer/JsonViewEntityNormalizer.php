@@ -24,9 +24,9 @@ class JsonViewEntityNormalizer extends ContentEntityNormalizer {
    * @param $format
    * @param array $context
    *
-   * @return array|\ArrayObject|bool|float|int|string|null
+   * @return array
    */
-  public function normalize($entity, $format = null, array $context = []) {
+  public function normalize($entity, $format = null, array $context = []): array {
     $view = $entity->getExecutable();
     $result = null;
     $displayMode = $context['viewMode'];

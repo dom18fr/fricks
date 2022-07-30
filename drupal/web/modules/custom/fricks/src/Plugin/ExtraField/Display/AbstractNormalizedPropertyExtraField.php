@@ -12,6 +12,9 @@ abstract class AbstractNormalizedPropertyExtraField extends ExtraFieldPlusDispla
 
   const EXPOSED_PROPERTY = null;
 
+  /**
+   * @var \Symfony\Component\Serializer\SerializerInterface
+   */
   protected SerializerInterface $serializer;
 
   /**

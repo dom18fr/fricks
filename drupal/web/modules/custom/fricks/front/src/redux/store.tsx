@@ -1,14 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import { Action } from './actions'
 
-type Reducer = Record<any,any>
-
-export type RootState = {
-  staticContent?: Record<any,any>
-  achievements?: Record<any,any>
-  yourProject?: Record<any,any>
-}
+import { Action, Reducer, RootState } from '../types'
 
 export const types = {
   SET_STATIC_CONTENT_DATA: 'SET_STATIC_CONTENT_DATA',

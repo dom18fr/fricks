@@ -4,7 +4,6 @@ namespace Drupal\fricks\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\Plugin\Field\FieldFormatter\EntityReferenceEntityFormatter;
-use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -67,7 +66,7 @@ class EmbedEntityReferenceFormatter extends EntityReferenceEntityFormatter {
    * @return array
    * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
    */
-  public function viewElements(FieldItemListInterface $items, $langcode) {
+  public function viewElements(FieldItemListInterface $items, $langcode): array {
     $elements = [];
     $context = [
       'viewMode' => $this->getSetting('view_mode'),

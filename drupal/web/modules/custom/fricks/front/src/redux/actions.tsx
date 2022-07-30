@@ -2,30 +2,14 @@ import { types } from './store'
 import DrupalClient from '../helpers/DrupalClient'
 import { Dispatch } from 'react'
 
-import { DrupalFieldItemList } from '../helpers/DrupalClient'
-
-export type Action = {
-  type: string
-  payload?: any
-}
-
-type AchievementFilters = {
-  location?: string
-  material?: string
-}
-
-type AchievementItem = {
-  title: DrupalFieldItemList
-  field_description: DrupalFieldItemList
-  field_main_picture: DrupalFieldItemList
-}
+import { Action, AchievementsFiltersType, AchievementItem } from '../types'
 
 export const loadStaticContent = (drupalData: Record<any,any>): Action => ({
   type: types.SET_STATIC_CONTENT_DATA,
   payload: drupalData
 })
 
-export const fetchAchievementData = (filters: AchievementFilters, page: number) => async (dispatch: Dispatch<Action>) => {
+export const fetchAchievementData = (filters: AchievementsFiltersType, page: number) => async (dispatch: Dispatch<Action>) => {
   dispatch(setAchivementsIsLoading())
   try {
     const { data: { collection = [] } = {} } = await DrupalClient.get({ 
